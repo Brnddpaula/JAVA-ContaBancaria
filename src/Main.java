@@ -2,16 +2,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String nome = "Brenda de Paula";
-        String tipoConta = "Corrente";
-        double saldo = 1599.99;
+        ContaBancaria conta = new ContaBancaria();
         int opcao = 0;
 
         System.out.println("***********************");
         System.out.println("Seus dados:");
-        System.out.println("Nome: " + nome);
-        System.out.println("Tipo conta: " + tipoConta);
-        System.out.println("Saldo inicial: " + saldo);
+        System.out.println("Nome: " + conta.nome);
+        System.out.println("Tipo conta: " + conta.tipoConta);
+        System.out.println("Saldo inicial: " + conta.saldo);
         System.out.println("***********************");
 
         String menu = """
@@ -30,19 +28,19 @@ public class Main {
             opcao = leitura.nextInt();
 
             if (opcao == 1) {
-                System.out.println("O saldo atualizado é: " + saldo);
+                System.out.println("O saldo atualizado é: " + conta.saldo);
             } else if (opcao == 2) {
                 System.out.println("Qual o valor da transferencia?");
                 double valor = leitura.nextDouble();
-                if (valor > saldo) {
+                if (valor > conta.saldo) {
                     System.out.println("Saldo insuficiente");
                 } else {
-                    saldo -= valor;
+                    conta.saldo -= valor;
                 }
             } else if (opcao == 3) {
                 System.out.println("Valor recebido: ");
                 double valor = leitura.nextDouble();
-                saldo += valor;
+                conta.saldo += valor;
             } else if (opcao != 4) {
                 System.out.println("Opcao invalida");
             }
