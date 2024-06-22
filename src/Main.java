@@ -14,5 +14,15 @@ public class Main {
         System.out.println("Saldo inicial: " + saldo);
         System.out.println("***********************");
 
+        String menu = """
+                        ** Digite sua opcao**
+                        1- Consultar saldos;
+                        2- Transferir valor;
+                        3- Receber valor
+                        4- Sair;
+                        Digite a opção desejada:
+                """;
+
+        Scanner leitura = new Scanner(System.in);
     }
 }
