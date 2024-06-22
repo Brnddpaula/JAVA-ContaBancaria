@@ -24,5 +24,28 @@ public class Main {
                 """;
 
         Scanner leitura = new Scanner(System.in);
+
+        while (opcao != 4) {
+            System.out.println(menu);
+            opcao = leitura.nextInt();
+
+            if (opcao == 1) {
+                System.out.println("O saldo atualizado é: " + saldo);
+            } else if (opcao == 2) {
+                System.out.println("Qual o valor da transferencia?");
+                double valor = leitura.nextDouble();
+                if (valor > saldo) {
+                    System.out.println("Saldo insuficiente");
+                } else {
+                    saldo -= valor;
+                }
+            } else if (opcao == 3) {
+                System.out.println("Valor recebido: ");
+                double valor = leitura.nextDouble();
+                saldo += valor;
+            } else if (opcao != 4) {
+                System.out.println("Opcao invalida");
+            }
+        }
     }
 }
