@@ -15,26 +15,14 @@ public class ContaBancaria {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     // Getter e Setter para o atributo tipoConta
     public String getTipoConta() {
         return tipoConta;
     }
 
-    public void setTipoConta(String tipoConta) {
-        this.tipoConta = tipoConta;
-    }
-
     // Getter e Setter para o atributo saldo
     public double getSaldo() {
         return saldoInicial;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldoInicial = saldo;
     }
 
     // Método para consultar o saldo
