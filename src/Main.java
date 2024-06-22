@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        //Essa criacao de instancia serve para ter  mais de uma contaBancaria
         ContaBancaria conta = new ContaBancaria("Brenda de Paula", "Corrente", 1599.99);
 
         // Exibir informações iniciais da conta usando getters
@@ -11,6 +12,7 @@ public class Main {
         System.out.println("Saldo inicial: " + conta.getSaldo());
         System.out.println("***********************");
 
+        //Para ler o que o usuario digitar
         Scanner leitura = new Scanner(System.in);
         int opcao = 0;
 
