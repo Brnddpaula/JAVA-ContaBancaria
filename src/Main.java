@@ -2,47 +2,51 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ContaBancaria conta = new ContaBancaria();
-        int opcao = 0;
+        ContaBancaria conta = new ContaBancaria("Brenda de Paula", "Corrente", 1599.99);
 
+        // Exibir informações iniciais da conta usando getters
         System.out.println("***********************");
-        System.out.println("Seus dados:");
-        System.out.println("Nome: " + conta.nome);
-        System.out.println("Tipo conta: " + conta.tipoConta);
-        System.out.println("Saldo inicial: " + conta.saldo);
+        System.out.println("Nome: " + conta.getNome());
+        System.out.println("Tipo conta: " + conta.getTipoConta());
+        System.out.println("Saldo inicial: " + conta.getSaldo());
         System.out.println("***********************");
-
-        String menu = """
-                        ** Digite sua opcao**
-                        1- Consultar saldos;
-                        2- Transferir valor;
-                        3- Receber valor
-                        4- Sair;
-                        Digite a opção desejada:
-                """;
 
         Scanner leitura = new Scanner(System.in);
+        int opcao = 0;
+
+        String menu = """
+                      ** Digite sua opção **
+                      1- Consultar saldos
+                      2- Transferir valor
+                      3- Receber valor
+                      4- Sair
+                      Digite a opção desejada:
+                      """;
 
         while (opcao != 4) {
             System.out.println(menu);
             opcao = leitura.nextInt();
 
-            if (opcao == 1) {
-                System.out.println("O saldo atualizado é: " + conta.saldo);
-            } else if (opcao == 2) {
-                System.out.println("Qual o valor da transferencia?");
-                double valor = leitura.nextDouble();
-                if (valor > conta.saldo) {
-                    System.out.println("Saldo insuficiente");
-                } else {
-                    conta.saldo -= valor;
-                }
-            } else if (opcao == 3) {
-                System.out.println("Valor recebido: ");
-                double valor = leitura.nextDouble();
-                conta.saldo += valor;
-            } else if (opcao != 4) {
-                System.out.println("Opcao invalida");
+            switch(opcao) {
+                case 1:
+                    conta.consultarSaldo();
+                    break;
+                case 2:
+                    System.out.println("Qual o valor da transferência?");
+                    double valorTransferencia = leitura.nextDouble();
+                    conta.transferirValor(valorTransferencia);
+                    break;
+                case 3:
+                    System.out.println("Valor recebido: ");
+                    double valorRecebido = leitura.nextDouble();
+                    conta.receberValor(valorRecebido);
+                    break;
+                case 4:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+                    break;
             }
         }
     }
